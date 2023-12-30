@@ -1,0 +1,91 @@
+.container {
+  padding: 0 15px;
+  display: flex;
+  gap: 1%;
+  margin: 129px 0 39px;
+}
+
+.sidebar-wrapper {
+  width: 19%;
+  position: relative;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+}
+
+.sidebar ul {
+  background-color: #fff;
+  box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
+  list-style: none;
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar li {
+  padding: 15px;
+  font: 13px 'Arial', sans-serif;
+  font-size: 23px;
+  box-shadow: inset -1px -2px rgba(0, 0, 0, .03);
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background-color: #f2f2f2;
+}
+
+.sidebar a[aria-current=page] li {
+  padding: 15px 15px 15px 59px;
+  background-color: rgb(25, 25, 57);
+  color: white;
+}
+
+.me-info {
+  padding: 15px;
+  font-size: 13px;
+}
+
+.me-info:hover {
+  background-color: transparent;
+}
+
+.main {
+  width: 80%;
+  background-color: #fff;
+  box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
+  min-height: 1800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main img {
+  width: 30%;
+}
+
+
+.searchbar-wrapper {
+  
+}
+
+.searchbar {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-size: 23px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  color: inherit;
+  box-sizing: border-box;
+  padding: 15px 15px 15px 59px;
+  border: none;
+  background: rgba(0, 0, 0, 0.003);
+  box-shadow: inset -1px -2px 0px rgba(0, 0, 0, 0.03);
+}
