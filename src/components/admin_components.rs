@@ -216,9 +216,13 @@ fn TablesList(entity_name: String) -> impl IntoView {
     window_event_listener(scroll, move |_ev| add_items());
 
     create_effect(move |_| match resource.get() {
-        None => {},
+        None => {
+            todo!()
+        },
         Some(data) => match data {
-            Err(err) => {},
+            Err(_err) => {
+                todo!()
+            },
             Ok((new_vec_of_maps, new_count)) => {
                 set_maps(new_vec_of_maps);
                 set_count(new_count);
@@ -255,7 +259,7 @@ fn ImgsList() -> impl IntoView {
                     None => view! { <p>"Loading..."</p> }.into_view(),
                     Some(data) => {
                         match data {
-                            Err(err) => view! { <p>"Err Loading..."</p> }.into_view(),
+                            Err(_err) => view! { <p>"Err Loading..."</p> }.into_view(),
                             Ok(val) => val
                                 .into_iter()
                                 .map(|n| view! {<Img url=n />})
@@ -284,8 +288,8 @@ fn TableFromMap(map: BTreeMap<String, Value>) -> impl IntoView {
                         Value::Number(val) => val.to_string(),
                         Value::String(val) => val.to_string(),
                         Value::Bool(val) => val.to_string(),
-                        Value::Array(val) => "it was array".to_string(),
-                        Value::Object(val) => "it was object".to_string(),
+                        Value::Array(_val) => "it was array".to_string(),
+                        Value::Object(_val) => "it was object".to_string(),
                         Value::Null => "it was null".to_string(),
                     };
 

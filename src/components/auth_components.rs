@@ -1,6 +1,4 @@
 use leptos::*;
-use log::info;
-use leptos::error::Result;
 use leptos::html::Input;
 
 
@@ -92,7 +90,9 @@ pub fn SignIn() -> impl IntoView {
         let password_: String = password.to_owned();
         async move {
             match signin(username_, password_).await {
-                Err(err) => {},
+                Err(_err) => {
+                    todo!()
+                },
                 Ok(_) => {
                     let navigate = leptos_router::use_navigate();
                     navigate("/admin", Default::default()); 
