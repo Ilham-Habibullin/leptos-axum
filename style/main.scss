@@ -1,11 +1,47 @@
 @use 'sec.scss';
+@use 'auth.scss';
+
+main {
+	padding: 0 15px;
+}
+
+table {
+	border-radius: 5;
+	border: 1px solid #eaeaea;
+	border-spacing: 0;
+	margin-bottom: 30px;
+}
+
+tr {
+	
+}
+
+tr:nth-child(odd) {
+	background-color: #eaeaea;
+}
+
+th {
+	padding: 10px;
+	text-align: left;
+	border-right: 1px solid #d0d0d0;
+}
+
+td {
+	padding: 10px;
+}
+
+.home-page {
+	display: flex;
+}
 
 nav {
 	display: flex;
 	background: #fff;
-	margin: 129px 0 39px 0;
+	margin: 129px auto 39px auto;
 	position: relative;
 	box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 nav a {
@@ -15,17 +51,12 @@ nav a {
 	text-decoration: none;
 }
 
-nav a:hover {
-	background-color: rgb(212, 204, 204);
+nav a:visited {
+	color: inherit;
 }
 
-.home-page h1 {
-	font: 13px 'Arial', sans-serif;
-	font-size: 59px;
-	font-weight: 349;
-	text-align: center;
-	padding-top: 20px;
-	color: rgba(242, 245, 248, 0.479);
+nav a:hover {
+	background-color: rgb(212, 204, 204);
 }
 
 html,

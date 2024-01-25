@@ -1,5 +1,4 @@
 .container {
-  padding: 0 15px;
   display: flex;
   gap: 1%;
   margin: 129px 0 39px;
@@ -60,9 +59,14 @@
   width: 80%;
   background-color: #fff;
   box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
-  min-height: 1800px;
+  // min-height: 1800px;
   display: flex;
   flex-direction: column;
+}
+
+.tables-list {
+  width: 600px;
+  padding: 20px;
 }
 
 .main img {

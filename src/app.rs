@@ -6,6 +6,7 @@ use leptos_router::*;
 
 use crate::components::todo_components::*;
 use crate::components::admin_components::*;
+use crate::components::auth_components::*;
 
 
 
@@ -19,10 +20,10 @@ pub fn App() -> impl IntoView {
 
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
-        <Stylesheet id="leptos" href="/pkg/leptos-axum.css"/>
+        <Stylesheet id="leptos" href="/pkg/leptos-axum-frontend.css"/>
 
         // sets the document title
-        <Title text="Welcome to Leptos"/>
+        <Title text="Admin Panel"/>
 
         // content for this welcome page
         <Router fallback=|| {
@@ -35,6 +36,10 @@ pub fn App() -> impl IntoView {
         }>
             <main>
                 <Routes>
+
+                    <Route path="/signin" view=SignIn/>
+                    <Route path="/signup" view=SignUp/>
+
                     <Route path="" view=HomePage/>
                     <Route path="/todo" view=TodoPage/>
                     <Route path="/admin" view=AdminPanel>
@@ -58,10 +63,6 @@ fn HomePage() -> impl IntoView {
 
     view! {
         <div class="home-page">
-            <h1>
-                Home page!
-            </h1>
-
             <nav>
                 <A href="admin">"Admin"</A>
                 <A href="todo">"Todo"</A>
