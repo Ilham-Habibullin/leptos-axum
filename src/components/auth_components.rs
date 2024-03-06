@@ -8,7 +8,7 @@ use crate::api::{auth::*, users::User};
 pub fn UserRegiesteredNotification(user: User) -> impl IntoView {
     return view!{
         <div class="user-created-notification">
-            User was  successfully created
+            User was successfully created
             <hr/>
             id: {user.id}
             <hr/>
@@ -74,11 +74,6 @@ pub fn SignUp() -> impl IntoView {
         </div>
     }
 }
-
-
-
-
-
 
 #[component]
 pub fn SignIn() -> impl IntoView {
