@@ -11,11 +11,16 @@ pub struct User {
     pub role: String
 }
 
-pub async fn fetch_users(limit: usize, offset: usize, role: Option<i16>) -> Result<(VecOfMaps, String)> {
-    let url = match role {
-        None => format!("http://localhost:8080/users?limit={limit}&offset={offset}"),
-        Some(role) => format!("http://localhost:8080/users?limit={limit}&offset={offset}&role={role}")
-    };
+pub async fn fetch_users(limit: usize, offset: usize, some_role: Option<i16>, search: String) -> Result<(VecOfMaps, String)> {
+    let mut url = format!("http://localhost:8080/users?limit={limit}&offset={offset}");
+
+    if let Some(role) = some_role {
+        url += &format!("&role={role}")
+    }
+
+    if search.trim() != "".to_string() {
+        url+= &format!("&search={search}")
+    }
 
     let resp = Request::get(&url)
         .send()
@@ -34,8 +39,8 @@ pub async fn fetch_users(limit: usize, offset: usize, role: Option<i16>) -> Resu
     }
 }
 
-pub async fn get_users(Pagination(limit, offset): Pagination, mut initial_vec: VecOfMaps, role: Option<i16>) -> Result<(VecOfMaps, String)> {
-    let (mut new_users, count) = fetch_users(limit, offset, role).await?;
+pub async fn get_users(Pagination(limit, offset): Pagination, mut initial_vec: VecOfMaps, role: Option<i16>, search: String) -> Result<(VecOfMaps, String)> {
+    let (mut new_users, count) = fetch_users(limit, offset, role, search).await?;
     initial_vec.append(&mut new_users);
     Ok((initial_vec, count))
 }
