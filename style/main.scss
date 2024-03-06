@@ -9,7 +9,25 @@ table {
 	border-radius: 5;
 	border: 1px solid #eaeaea;
 	border-spacing: 0;
+}
+
+.item-table-wrapper {
+	// display: flex;
+	// flex-direction: row;
 	margin-bottom: 30px;
+}
+
+.item-table-wrapper input[type=text] {
+	// background-color: transparent;
+	// height: 100%;
+	// width: 100%;
+	// border: none;
+	// margin: 0;
+	// padding: 0;
+}
+
+.item-table-wrapper input[type=button] {
+	margin: 5px;
 }
 
 tr {
