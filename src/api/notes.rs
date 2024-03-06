@@ -14,6 +14,7 @@ pub async fn fetch_notes(limit: usize, offset: usize) -> Result<(VecOfMaps, Stri
     let url = format!("http://localhost:8080/notes?limit={limit}&offset={offset}");
 
     let resp = Request::get(&url)
+        .credentials(web_sys::RequestCredentials::Include)
         .send()
         .await?;
 
@@ -28,7 +29,6 @@ pub async fn fetch_notes(limit: usize, offset: usize) -> Result<(VecOfMaps, Stri
         }
     }
 }
-
 
 pub async fn get_notes(Pagination(limit, offset): Pagination, mut initial_vec: VecOfMaps) -> Result<(VecOfMaps, String)> {
     let (mut new_notes, count) = fetch_notes(limit, offset).await?;
