@@ -1,3 +1,5 @@
+use std::str::FromStr;
+
 use leptos::*;
 use leptos_router::*;
 
@@ -50,36 +52,72 @@ fn UserInfo() -> impl IntoView {
 
 #[component]
 pub fn Sidebar() -> impl IntoView {
+
+    let sidebar_wrapper_ref = create_node_ref::<leptos::html::Div>();
+    // let sidebar_hide_bttn_ref = create_node_ref::<leptos::html::Img>();
+
+    let hide_sidebar = move |_| {
+
+        if let Some(el) = sidebar_wrapper_ref.get_untracked() {
+            let sidebar_classlist = el.class_list();
+            let hidden_string = &web_sys::js_sys::JsString::from_str("hidden").unwrap();
+            let array = &web_sys::js_sys::Array::new();
+
+            array.push(&hidden_string);
+
+            let _ = match sidebar_classlist.contains("hidden") {
+                true => sidebar_classlist.remove(array),
+                false => sidebar_classlist.add(array)
+            };
+        }
+
+    };
+
+
     view! {
-        <div class="sidebar-wrapper">
+        <div class="sidebar-wrapper" node_ref=sidebar_wrapper_ref>
             <div class="sidebar">
+
+                <div class="sidebar-header">
+                    <img
+                        id="sidebar-hide-bttn"
+                        class="sidebar-hide-bttn icon icon_light"
+                        src="/svg/sidebar_white.svg"
+                        style="width: 34px; height: 34px;"
+                        on:click=hide_sidebar
+                    />
+
+                    <div class="sidebar-header-divider-wrapper">
+                        <div class="sidebar-header-divider"></div>
+                    </div>
+                </div>
+
                 <UserInfo />
 
                 <ul>
-
                     <p class="delimiter">Visuals</p>
 
                     <A href="tables" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/table-alt-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/table-alt-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Tables
+                            <img class="icon icon_dark" src="/svg/table-alt.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/table-alt_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Tables</span>
                         </li>
                     </A>
 
                     <A href="panels" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/chart-tree-map-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/chart-tree-map-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Panels
+                            <img class="icon icon_dark" src="/svg/chart-tree-map.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/chart-tree-map_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Panels</span>
                         </li>
                     </A>
 
                     <A href="graphs" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/chart-scatter-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/chart-scatter-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Graphs
+                            <img class="icon icon_dark" src="/svg/chart-scatter.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/chart-scatter_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Graphs</span>
                         </li>
                     </A>
 
@@ -89,41 +127,41 @@ pub fn Sidebar() -> impl IntoView {
 
                     <A href="notes" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/table-list-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/table-list-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Notes
+                            <img class="icon icon_dark" src="/svg/table-list.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/table-list_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Notes</span>
                         </li>
                     </A>
 
                     <A href="users" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/user-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/user-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Users
+                            <img class="icon icon_dark" src="/svg/user.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/user_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Users</span>
                         </li>
                     </A>
 
                     <A href="basics" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/user-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/user-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Basic users
+                            <img class="icon icon_dark" src="/svg/user.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/user_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Basic users</span>
                         </li>
                     </A>
 
                     <A href="moderators" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/user-plus-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/user-plus-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Moderators
+                            <img class="icon icon_dark" src="/svg/user-plus.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/user-plus_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Moderators</span>
                         </li>
                     </A>
 
                     <A href="admins" exact=true>
                         <li>
-                            <img class="icon icon_dark" src="/svg/user-shield-com.svg" style="width: 24px; height: 24px;"/>
-                            <img class="icon icon_light" src="/svg/user-shield-com_white.svg" style="width: 24px; height: 24px;"/>
-                            Admins
+                            <img class="icon icon_dark" src="/svg/user-shield.svg" style="width: 24px; height: 24px;"/>
+                            <img class="icon icon_light" src="/svg/user-shield_white.svg" style="width: 24px; height: 24px;"/>
+                            <span class="sidebar-item-text">Admins</span>
                         </li>
                     </A>
                 </ul>
@@ -137,9 +175,9 @@ fn SidebarListItem() -> impl IntoView {
     view!{
         <A class="sidebar-item-with-list" href="cats" exact=true>
             <li>
-                <img class="icon icon_dark" src="/svg/table-list-com.svg" style="width: 24px; height: 24px;"/>
-                <img class="icon icon_light" src="/svg/table-list-com_white.svg" style="width: 24px; height: 24px;"/>
-                Cats
+                <img class="icon icon_dark" src="/svg/table-list.svg" style="width: 24px; height: 24px;"/>
+                <img class="icon icon_light" src="/svg/table-list_white.svg" style="width: 24px; height: 24px;"/>
+                <span class="sidebar-item-text">Cats</span>
             </li>
             <div class="nested-sidebar-list">
                 <ul>
