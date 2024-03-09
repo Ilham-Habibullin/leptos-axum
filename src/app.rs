@@ -3,12 +3,10 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
+use crate::components::auth_components::{SignIn, SignUp};
 
-use crate::components::todo_components::*;
-use crate::components::admin_components::*;
-use crate::components::auth_components::*;
-
-
+use crate::components::admin_panel_components::Main;
+use crate::components::admin_panel_components::sidebar::Sidebar;
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -40,13 +38,12 @@ pub fn App() -> impl IntoView {
                     <Route path="/signin" view=SignIn/>
                     <Route path="/signup" view=SignUp/>
 
-                    <Route path="" view=HomePage/>
-                    <Route path="/todo" view=TodoPage/>
+                    <Route path="" view=|| view!{ <Redirect path="/admin" /> }/>
                     <Route path="/admin" view=AdminPanel>
                         <Route path=":entity" view=Main />
 
                         <Route path="" view=|| view! {
-                            <div>
+                            <div class="no-choosen-panel">
                                 "panel was not chosen"
                             </div>
                         }/>
@@ -57,34 +54,6 @@ pub fn App() -> impl IntoView {
     }
 }
 
-
-#[component]
-fn HomePage() -> impl IntoView {
-
-    view! {
-        <div class="home-page">
-            <nav>
-                <A href="admin">"Admin"</A>
-                <A href="todo">"Todo"</A>
-            </nav>
-        </div>
-    }
-
-}
-
-/// Renders the home page of your application.
-#[component]
-fn TodoPage() -> impl IntoView {
-    // Creates a reactive value to update the button
-    let todos: (ReadSignal<Vec<TodoItem>>, WriteSignal<Vec<TodoItem>>) = create_signal(vec![]);
-
-    view! {
-        <div class="todo-app">
-            <TodoInput todos={todos} />
-            <TodoList todos={todos} />
-        </div>
-    }
-}
 
 #[component]
 fn AdminPanel() -> impl IntoView {

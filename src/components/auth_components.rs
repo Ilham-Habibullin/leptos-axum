@@ -1,7 +1,6 @@
 use leptos::*;
 use leptos::html::Input;
 
-
 use crate::api::{auth::*, users::User};
 
 #[component]

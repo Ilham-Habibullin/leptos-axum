@@ -81,3 +81,15 @@ pub async fn signin(username: String, password: String) -> Result<(), AuthError>
 
     Ok(())
 }
+
+pub async fn signout() -> Result<(), AuthError> {
+
+    let url = format!("http://localhost:8080/auth/signout");
+
+    Request::post(&url)
+        .credentials(web_sys::RequestCredentials::Include)
+        .send()
+        .await?;
+
+    Ok(())
+}

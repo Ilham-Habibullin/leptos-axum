@@ -2,7 +2,7 @@ use leptos::error::Result;
 use gloo_net::http::Request;
 use serde::{Deserialize, Serialize};
 
-use crate::components::admin_components::{Pagination, VecOfMaps};
+use crate::common_types::{Pagination, VecOfMaps};
 
 #[derive(Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 pub struct User {

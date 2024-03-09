@@ -2,7 +2,7 @@ use leptos::error::Result;
 use gloo_net::http::Request;
 use serde::{Deserialize, Serialize};
 
-use crate::components::admin_components::{Pagination, VecOfMaps};
+use crate::common_types::{Pagination, VecOfMaps};
 
 #[derive(Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 pub struct Note {
@@ -39,4 +39,3 @@ pub async fn get_notes(Pagination(limit, offset): Pagination, mut initial_vec: V
 pub async fn delete_note() {
     todo!()
 }
-

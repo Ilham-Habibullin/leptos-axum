@@ -1,90 +1,70 @@
+.no-choosen-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    color: var(--dark-grey-font);
+}
+
 .container {
-  display: flex;
-  gap: 1%;
-  margin: 129px 0 39px;
-}
-
-.sidebar-wrapper {
-  width: 19%;
-  position: relative;
-}
-
-.sidebar {
-  position: sticky;
-  top: 0;
-}
-
-.sidebar ul {
-  background-color: #fff;
-  box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
-  list-style: none;
-  margin: 0;
-  margin-bottom: 30px;
-  padding: 0;
-}
-
-.sidebar a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.sidebar li {
-  padding: 15px;
-  font: 13px 'Arial', sans-serif;
-  font-size: 23px;
-  box-shadow: inset -1px -2px rgba(0, 0, 0, .03);
-  cursor: pointer;
-}
-
-.sidebar li:hover {
-  background-color: #f2f2f2;
-}
-
-.sidebar a[aria-current=page] li {
-  padding: 15px 15px 15px 59px;
-  background-color: rgb(25, 25, 57);
-  color: white;
-}
-
-.me-info {
-  padding: 15px;
-  font-size: 13px;
-}
-
-.me-info:hover {
-  background-color: transparent;
+    display: flex;
 }
 
 .main {
-  width: 80%;
-  background-color: #fff;
-  box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
-  // min-height: 1800px;
-  display: flex;
-  flex-direction: column;
+    flex-grow: 1;
+    background-color: var(--main-bright);
+    display: flex;
+    flex-direction: column;
 }
 
-.tables-list {
-  width: 600px;
-  padding: 20px;
+.main-content {
+    flex-grow: 1;
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-sidebar {
+    width: 30%;
+    background-color: var(--main-bright);
+}
+
+.main-sidebar .main-sidebar-item {
+    height: 450px;
+    border: 1px solid var(--dark-grey);
+    margin: 15px;
+    margin-top: 0;
+    border-radius: 10px;
 }
 
 .main img {
-  width: 30%;
+    width: 30%;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.searchbar-wrapper {
+    background-color: var(--main-bright);
+    padding: 15px;
+    border-bottom: 1px solid var(--main-grey);
 }
 
 .searchbar {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  font-size: 23px;
-  font-family: inherit;
-  font-weight: inherit;
-  line-height: 1.4em;
-  color: inherit;
-  box-sizing: border-box;
-  padding: 15px 15px 15px 59px;
-  border: none;
-  background: rgba(0, 0, 0, 0.003);
-  box-shadow: inset -1px -2px 0px rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: none;
+    background: var(--main-grey);
+}
+
+
+.graph,
+.table,
+.panels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }

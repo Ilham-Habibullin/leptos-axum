@@ -1,0 +1,93 @@
+.sidebar-wrapper {
+    width: 20%;
+    position: relative;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background-color: var(--main-dark);
+    color: var(--main-bright);
+    position: sticky;
+    top: 0;
+    padding-top: 15px;
+}
+
+.sidebar .delimiter {
+    font-size: 25px;
+    margin: 30px 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 10px;
+}
+
+.sidebar > ul > a > li {
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font: 16px 'Arial', sans-serif;
+    cursor: pointer;
+    color: var(--dark-grey);
+}
+
+.sidebar > ul > a[aria-current=page] > li > .icon_light,
+.sidebar > ul > a > li > .icon_dark {
+    display: none;
+}
+
+.sidebar > ul > a > li > .icon_light,
+.sidebar > ul > a[aria-current=page] > li > .icon_dark {
+    display: block;
+}
+
+.sidebar > ul {
+    padding: 15px 25px;
+}
+
+.sidebar > ul > a > li:hover {
+    background-color: var(--hovered-dark);
+    color: var(--main-bright);
+}
+
+.sidebar > ul > a > .nested-sidebar-list {
+    background-color: var(--main-grey);
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    display: none;
+}
+
+.sidebar > ul > a[aria-current=page] > .nested-sidebar-list {
+    display: block;
+    color: var(--main-dark);
+}
+
+.nested-sidebar-list li {
+    padding: 10px;
+    padding-left: 40px;
+    margin-bottom: 0;
+}
+
+.sidebar > ul > a[aria-current=page] > li {
+    background-color: var(--main-bright);
+    color: var(--main-dark);
+}
+
+.nested-sidebar-list li:hover {
+    background-color: var(--dark-grey);
+}
+
+.sidebar-item-with-list[aria-current=page] > li {
+    border-radius: 5px 5px 0 0 !important;
+    margin-bottom: 0;
+}

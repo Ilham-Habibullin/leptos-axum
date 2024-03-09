@@ -1,39 +1,40 @@
 .auth-form {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
   gap: 10px;
-  margin: auto;
-  margin-top: 150px;
+  background-color: var(--main-dark);
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .auth-form input {
+  width: 300px;
+  box-sizing: border-box;
   padding: 10px;
   font-size: 19px;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   text-align: center;
 }
 
 .auth-form input[type=button] {
-  background-color: #525872;
-  color: white; 
+  background-color: var(--shallow-dark);
+  color: var(--main-bright);
   cursor: pointer;
 }
 
-.auth-form input[type=button]:hover {
-  background-color: #64697d;
-}
-
-
 .user-created-notification {
   border-radius: 5px;
-  background-color: #fff;
+  background-color: var(--main-bright);
   padding: 10px;
+  width: 300px;
+  box-sizing: border-box;
 }
 
 .user-created-notification hr {
-  width: 100%;
   margin: 10px 0;
-  background-color: #000;
+  height: 1px;
+  border: none;
+  
 }

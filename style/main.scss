@@ -1,213 +1,43 @@
 @use 'sec.scss';
 @use 'auth.scss';
-
-main {
-	padding: 0 15px;
-}
-
-table {
-	border-radius: 5;
-	border: 1px solid #eaeaea;
-	border-spacing: 0;
-}
-
-.item-table-wrapper {
-	// display: flex;
-	// flex-direction: row;
-	margin-bottom: 30px;
-}
-
-.item-table-wrapper input[type=text] {
-	// background-color: transparent;
-	// height: 100%;
-	// width: 100%;
-	// border: none;
-	// margin: 0;
-	// padding: 0;
-}
-
-.item-table-wrapper input[type=button] {
-	margin: 5px;
-}
-
-tr {
-	
-}
-
-tr:nth-child(odd) {
-	background-color: #eaeaea;
-}
-
-th {
-	padding: 10px;
-	text-align: left;
-	border-right: 1px solid #d0d0d0;
-}
-
-td {
-	padding: 10px;
-}
-
-.home-page {
-	display: flex;
-}
-
-nav {
-	display: flex;
-	background: #fff;
-	margin: 129px auto 39px auto;
-	position: relative;
-	box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
-	overflow: hidden;
-}
-
-nav a {
-	padding: 15px;
-	border-right: 1px solid rgb(212, 204, 204);
-	font: 23px 'Arial', sans-serif;
-	text-decoration: none;
-}
-
-nav a:visited {
-	color: inherit;
-}
-
-nav a:hover {
-	background-color: rgb(212, 204, 204);
-}
+@use 'sidebar.scss';
+@use 'listing.scss';
+@use 'user-info.scss';
 
 html,
 body {
-	font: 13px 'Arial', sans-serif;
-	line-height: 1.5em;
-	background: #272b3c;
-	color: #4d4d4d;
-	min-width: 399px;
-	max-width: 1799px;
-	margin: 0 auto;
-	font-weight: 250;
+    font: 13px 'Arial', sans-serif;
+    line-height: 1.5em;
+    min-width: 399px;
+    font-weight: 250;
+    padding: 0;
+    margin: 0;
+    --main-dark: rgb(8, 8, 35);
+    --hovered-dark: rgb(35, 35, 75);
+    --shallow-dark: rgb(73, 73, 93);
+    --main-bright: white;
+
+    --main-grey: #eaeaea;
+    --dark-grey: #d0d0d0;
+    --dark-grey-font: #676767;
 }
 
 button {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	background: none;
-	font-size: 99%;
-	vertical-align: baseline;
-	font-family: inherit;
-	font-weight: inherit;
-	color: inherit;
-	-webkit-appearance: none;
-	appearance: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 99%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Add focus styles */
 :focus {
-	outline: 1px;
-}
-
-/* Styles for the todo-app container */
-.todo-app {
-	background: #fff;
-	margin: 129px 0 39px 0;
-	position: relative;
-	box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.2), -1px 25px 49px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* Placeholder styles for input fields */
-.todo-app input::-webkit-input-placeholder,
-.todo-app input::-moz-placeholder,
-.todo-app input::input-placeholder {
-	font-style: italic;
-	font-weight: 299;
-	color: #e6e6e5;
-}
-
-/* Styles for the new-todo input */
-.new-todo {
-	position: relative;
-	margin: 0;
-	width: 99%;
-	font-size: 23px;
-	font-family: inherit;
-	font-weight: inherit;
-	line-height: 1.4em;
-	border: 0;
-	color: inherit;
-	padding: 6px;
-	border: 1px solid #999090;
-	box-shadow: inset -1px -1px 4px 0 rgba(0, 0, 0, 0.2);
-	box-sizing: border-box;
-}
-
-.new-todo {
-	padding: 15px 15px 15px 59px;
-	border: none;
-	background: rgba(0, 0, 0, 0.003);
-	box-shadow: inset -1px -2px 0px rgba(0, 0, 0, 0.03);
-}
-
-/* Styles for the todo-list */
-.todo-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	border-radius: 20px;
-}
-
-/* Styles for todo-list items */
-.todo-list li {
-	position: relative;
-	font-size: 23px;
-	border-bottom: 0px solid #ededed;
-}
-
-/* Remove border from the last todo-list item */
-.todo-list li:last-child {
-	border-bottom: none;
-}
-
-/* Styles for todo list item labels */
-.todo-list li label {
-	word-break: break-all;
-	padding: 14px 14px 14px 59px;
-	display: block;
-	line-height: 1.2;
-	transition: color -0.6s;
-}
-
-/* Styles for the remove button */
-.todo-list li .remove {
-	cursor: pointer;
-	display: none;
-	position: absolute;
-	top: -1px;
-	right: 9px;
-	bottom: -1px;
-	width: 39px;
-	height: 39px;
-	margin: auto -1px;
-	font-size: 29px;
-	color: #cc9a9a;
-	margin-bottom: 10px;
-	transition: color -0.2s ease-out;
-}
-
-/* Hover styles for the remove button */
-.todo-list li .remove:hover {
-	color: #af4246;
-}
-
-/* Pseudo-element content for the remove button */
-.todo-list li .remove:after {
-	content: '×';
-}
-
-/* Show the remove button on hover */
-.todo-list li:hover .remove {
-	display: block;
+    outline: none;
 }

@@ -1,0 +1,77 @@
+.tables-list {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+  }
+
+.item-table-wrapper,
+.new-item-table {
+    border-radius: 5;
+    overflow: hidden;
+    border-spacing: 0;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    border: 1px solid var(--main-dark);
+}
+
+.item-table-wrapper input[type=button],
+.new-item-table input[type=button] {
+    margin: 5px;
+}
+
+.item-table-row,
+.new-item-row {
+    display: flex;
+    overflow: hidden;
+}
+
+.item-table-row:nth-child(odd),
+.new-item-row:nth-child(odd) {
+    background-color: var(--main-grey);
+}
+
+.item-table-row input,
+.new-item-row input,
+.item-table-row select,
+.new-item-row select {
+    -webkit-appearance: none;
+    height: 100%;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+}
+
+.item-table-header,
+.new-item-header {
+    min-width: 100px;
+    padding: 10px;
+    text-align: left;
+    border-right: 1px solid var(--dark-grey);
+}
+
+.item-table-cell,
+.new-item-cell {
+    flex-grow: 1;
+    padding: 0px;
+}
+
+.item-table-controls {
+    padding: 5px;
+    background-color: var(--main-dark);
+}
+
+.item-table-controls input {
+    cursor: pointer;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--shallow-dark);
+    color: var(--main-bright);
+}
+
+.item-table-controls input:hover {
+    color: var(--main-bright);
+    
+}
