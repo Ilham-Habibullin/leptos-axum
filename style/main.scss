@@ -4,6 +4,10 @@
 @use 'listing.scss';
 @use 'user-info.scss';
 
+@use 'panels.scss';
+@use 'graphs.scss';
+@use 'tables.scss';
+
 html,
 body {
     font: 13px 'Arial', sans-serif;
@@ -20,6 +24,17 @@ body {
     --main-grey: #eaeaea;
     --dark-grey: #d0d0d0;
     --dark-grey-font: #676767;
+
+    --green-color: green;
+    --red-color: red;
+}
+
+.green-color {
+    color: var(--green-color)
+}
+
+.red-color {
+    color: var(--red-color)
 }
 
 button {
